@@ -5,22 +5,22 @@ import re
 
 # declare and set a variable of string type
 given_string = 'homEwork:\n' \
-         '\n' \
-         '  tHis iz your homeWork, copy these Text to variable.\n' \
-         '\n' \
-         ' \n' \
-         '\n' \
-         '  You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE' \
-         ' witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.\n' \
-         '\n' \
-         ' \n' \
-         '\n' \
-         '  it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE.\n' \
-         '\n' \
-         ' \n' \
-         '\n' \
-         '  last iz TO calculate nuMber OF Whitespace characteRS in this Tex.' \
-         ' caREFULL, not only Spaces, but ALL whitespaces. I got 87.\n'
+               '\n' \
+               '  tHis iz your homeWork, copy these Text to variable.\r' \
+               '\n' \
+               ' \n' \
+               '\n' \
+               '  You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE' \
+               ' witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.\r' \
+               '\n' \
+               ' \n' \
+               '\n' \
+               '  it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE.\r' \
+               '\n' \
+               ' \n' \
+               '\n' \
+               '  last iz TO calculate nuMber OF Whitespace characteRS in this Tex.' \
+               ' caREFULL, not only Spaces, but ALL whitespaces. I got 87.\r'
 
 # to replace "iz" where it is a mistake to "is" was used function sub
 # to find all "iz" where it is a mistake was used regular expression
@@ -51,6 +51,7 @@ for sentence in re.split(r'(\S.*?\.)', corrected_string):
 # \. -  matches the character .
 last_words = re.findall(r'\b\w*?\b\.', normalized_string)
 
+
 # declare and set function cut_dot to cut the last symbol '.'
 
 
@@ -67,23 +68,20 @@ cut_words = list(map(cut_dot, last_words))
 # '.' was added by concatenation operation
 additional_sentence = ' '.join(cut_words).strip().capitalize() + '.'
 
-# to add additional sentence  to the end of second paragraph was used function sub with regular expression
-# was found end od the second paragraph and replaced by additional sentence
-# was used an optional argument to set a flag for letter case ignoring
-add_sentence = re.sub(r'( paragraph.)', ' paragraph. ' + additional_sentence, normalized_string, flags=re.IGNORECASE)
+# to add additional sentence  to the end of second paragraph
+# was used method split to create a list of paragraphs with regular expression
+# was found the end of the second paragraph and added an additional sentence
+new_paragraph = re.split(r'(\r)', normalized_string)
+new_paragraph[2] = re.split(r'(\r)', normalized_string)[2] + ' ' + additional_sentence
 print('------------------------------------')
 print('Resulted processed text')
 print('------------------------------------')
-print(add_sentence)
+print(''.join(new_paragraph))
 
 print('------------------------------------')
 # to count all spaces and whitespaces was used function findall with regular expression
 # \s matches any whitespace character (equivalent to [\r\n\t\f\v ])
 print('Count of spaces and whitespaces:', len(re.findall(r'[\s]', given_string)))
 print('------------------------------------')
-
-
-
-
 
 
