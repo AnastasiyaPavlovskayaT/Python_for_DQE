@@ -1,10 +1,19 @@
 
 # The Python script to solve Module 4  - module 3 'String Object' home task.
 
+# declare and set function fix_iz to replace 'iz' to 'is'
+# where is is a mistake
+# function has one parameter - string
+
 
 def fix_iz(string):
     import re
     return re.sub(r'(\siz\s)', ' is ', string, flags=re.IGNORECASE)
+
+
+# declare and set function normalize_string
+# to normalize string from letter cases point of view
+# function has one parameter - string
 
 
 def normalize_string(string):
@@ -15,9 +24,23 @@ def normalize_string(string):
     return normalized_string
 
 
+# declare and set function additional_sentence
+# to create one more sentence with last words of each existing sentence
+# function has one parameter - string
+
+
 def additional_sentence(string):
     import re
     return ' '.join(list(map(lambda word: word.rstrip('.'), re.findall(r'\b\w*?\b\.', string)))).strip().capitalize() + '.'
+
+
+# declare and set function additional_sentence
+# to create one more sentence with last words of each existing sentence
+# function has three parameters
+# 1 - proceed string
+# 2 - string which shoud be added
+# 3 - number of paragraph in which the additional sentence
+# will be added at the end
 
 
 def add_sentence(string, add_string, paragraph_number):
@@ -27,12 +50,17 @@ def add_sentence(string, add_string, paragraph_number):
     return ''.join(new_paragraph)
 
 
+# declare and set function count_whitespaces
+# to calculate number of whitespace characters
+# function has one parameter - string
+
 
 def count_whitespaces(string):
     import re
     return len(re.findall(r'[\s]', string))
 
 
+# declare and set a variable of string type
 given_string = 'homEwork:\n' \
                '\n' \
                '  tHis iz your homeWork, copy these Text to variable.\r' \
@@ -54,7 +82,10 @@ given_string = 'homEwork:\n' \
 print('------------------------------------')
 print('Resulted processed text')
 print('------------------------------------')
-print(add_sentence(normalize_string(fix_iz(given_string)), additional_sentence(normalize_string(fix_iz(given_string))), 2))
+try:
+    print(add_sentence(normalize_string(fix_iz(given_string)), additional_sentence(normalize_string(fix_iz(given_string))), 2))
+except IndexError:
+    print('Given string is empty.')
 
 
 print('------------------------------------')

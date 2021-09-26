@@ -1,6 +1,8 @@
 # The Python script to solve Module 4  - module 2 'Collections' home task.
 
-
+# declare and set function for creation of a list of random number of dicts (from 2 to 10)
+# dictionaries random numbers of keys is letter; dictionaries values should be a number (0-100),
+# the function has two parameters - upper bounds for generation of dict's values and number of dicts
 def generate_list_of_dict(count_items = 10, dict_values = 100):
     import random
     import string
@@ -11,6 +13,8 @@ def generate_list_of_dict(count_items = 10, dict_values = 100):
     return random_list_of_dict
 
 
+# declare and set function map_func to combine all key values ​​from dictionaries
+# the function has one parameter - the list of dictionaries
 def map_func(random_list_of_dict):
     import collections
     auxiliary_dict = collections.defaultdict(list)
@@ -19,7 +23,9 @@ def map_func(random_list_of_dict):
             auxiliary_dict[key].append(dict_element[key])
     return auxiliary_dict
 
-
+# declare and set function reduce_func to find max value for key
+# and create new one dictionary with updated keys
+# the function has one parameter - the dictionary
 def reduce_func(auxiliary_dict):
     import collections
     common_dict = {}
