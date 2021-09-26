@@ -31,6 +31,4 @@ def reduce_func(auxiliary_dict):
     return common_dict
 
 
-auxiliary_dict = map_func(generate_list_of_dict(10, 100))
-
-print('\nResulted common dict:\n', reduce_func(auxiliary_dict))
+print('\nResulted common dict:\n', reduce_func(map_func(generate_list_of_dict(10, 100))))
