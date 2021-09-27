@@ -1,4 +1,3 @@
-
 # The Python script to solve Module 4  - module 3 'String Object' home task.
 
 # declare and set function fix_iz to replace 'iz' to 'is'
@@ -20,7 +19,7 @@ def normalize_string(string):
     import re
     normalized_string = ''
     for sentence in re.split(r'(\S.*?\.)', string):
-      normalized_string = normalized_string + sentence.capitalize()
+        normalized_string = normalized_string + sentence.capitalize()
     return normalized_string
 
 
@@ -31,7 +30,8 @@ def normalize_string(string):
 
 def additional_sentence(string):
     import re
-    return ' '.join(list(map(lambda word: word.rstrip('.'), re.findall(r'\b\w*?\b\.', string)))).strip().capitalize() + '.'
+    return ' '.join(
+        list(map(lambda word: word.rstrip('.'), re.findall(r'\b\w*?\b\.', string)))).strip().capitalize() + '.'
 
 
 # declare and set function additional_sentence
@@ -83,13 +83,11 @@ print('------------------------------------')
 print('Resulted processed text')
 print('------------------------------------')
 try:
-    print(add_sentence(normalize_string(fix_iz(given_string)), additional_sentence(normalize_string(fix_iz(given_string))), 2))
+    print(add_sentence(normalize_string(fix_iz(given_string)),
+                       additional_sentence(normalize_string(fix_iz(given_string))), 2))
 except IndexError:
     print('Given string is empty.')
-
 
 print('------------------------------------')
 print('Count of spaces and whitespaces:', count_whitespaces(given_string))
 print('------------------------------------')
-
-

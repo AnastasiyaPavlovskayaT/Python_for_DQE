@@ -3,12 +3,12 @@
 # declare and set function for creation of a list of random number of dicts (from 2 to 10)
 # dictionaries random numbers of keys is letter; dictionaries values should be a number (0-100),
 # the function has two parameters - upper bounds for generation of dict's values and number of dicts
-def generate_list_of_dict(count_items = 10, dict_values = 100):
+def generate_list_of_dict(count_items=10, dict_values=100):
     import random
     import string
     random_list_of_dict = [{random.choice(string.ascii_letters): random.randint(0, dict_values)
-                        for index_couple in range(random.randint(2, count_items))}
-                       for index_dict in range(2, random.randint(2, count_items))]
+                            for index_couple in range(random.randint(2, count_items))}
+                           for index_dict in range(2, random.randint(2, count_items))]
     print('\nCreated list of random number of dicts:\n ', random_list_of_dict)
     return random_list_of_dict
 
@@ -22,6 +22,7 @@ def map_func(random_list_of_dict):
         for key, value in dict_element.items():
             auxiliary_dict[key].append(dict_element[key])
     return auxiliary_dict
+
 
 # declare and set function reduce_func to find max value for key
 # and create new one dictionary with updated keys
