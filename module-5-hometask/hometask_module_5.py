@@ -2,63 +2,74 @@
 
 
 class Publication:
+    postContent = ''
+    postDate = ''
+
     def __init__(self):
         pass
 
-    def publish(self, type_public):
-        return input('-------Enter post---------')
+    def setPostData(self):
+        post = input('\n--------------News publication.--------------\n')
+        self.postContent = post
 
-    def _publich_date(self):
+    def publish(self, type_public):
+        return self.postContent
+
+    def _publish_date(self):
         from datetime import datetime
-        current_datetime = datetime.now()
-        return str(current_datetime.day) + '/' + str(current_datetime.month) + '/' + str(current_datetime.year) + ' ' + str(current_datetime.hour) + '.' + str(current_datetime.minute)
+        return datetime.now().strftime("%d/%m/%Y %H.%M")
+
+
+class News(Publication):
+    newsTown = ''
+    def __init__(self):
+        Publication.__init__(self)
+
+    def publish(self):
+        self.postDate = self._publish_date()
+        return 'News -------------------------\n' + self.postContent + '\n' + self.newsTown + ', ' + self.postDate + '\n------------------------------\n'
+
+    def setNewsData(self):
+        news = input('\n--------------News publication. Enter news: --------------\n')
+        town = input('\n--------------News publication. Enter town: --------------\n')
+        self.postContent = news
+        self.newsTown = town
+
+
+class Advertising(Publication):
+    def __init__(self):
+        Publication.__init__(self)
+
+    def setAdData(self):
+        adv = input('\n--------------Ad publication--------------\nEnter ad: ')
+        self.postContent = adv
+
+    def publish(self):
+        self.postDate = self._publish_date()
+        return 'Private Ad ------------------\n' + self.postContent + '\n' + 'Actual until: ' + self._days_left() +' days left\n------------------------------\n'
 
     def _expired_date(self):
         from datetime import datetime
         current_datetime = datetime.now()
         while True:
+            user_date = input('------------Enter expired date (m/dd/yyyy):------------\n')
             try:
-                expired_date_day = int(input('Enter the expiration date of the end of the ad (day): '))
-                expired_date_month = int(input('Enter the expiration date of the end of the ad (month): '))
-                expired_date_year = int(input('Enter the expiration date of the end of the ad (year): '))
-                date = str(expired_date_day) + '/' + str(expired_date_month) + '/' + str(expired_date_year)
-                if expired_date_year < current_datetime.year or (expired_date_year == current_datetime.year and expired_date_month < current_datetime.month):
-                    raise Exception("\n--------------------The date that was entered is in the past! Please try again.----------------------------\n")
-                elif expired_date_year == current_datetime.year and expired_date_month < current_datetime.month:
-                    raise Exception("\n--------------------The date that was entered is in the past! Please try again.----------------------------\n")
-                elif expired_date_year == current_datetime.year and expired_date_month == current_datetime.month and expired_date_day < current_datetime.day:
-                    raise Exception("\n--------------------The date that was entered is in the past! Please try again.----------------------------\n")
-            except Exception as err:
-                print(err)
+                date = datetime.strptime(user_date, '%m/%d/%Y')
+                current_date = datetime.now()
+                if date < current_date:
+                    print("------------Entered date in the past. Please enter expired date once again.------------")
+                    continue
+                break
+            except ValueError:
+                print('------------Invalid date!------------')
                 continue
-            break
-        return date
+        return user_date
 
     def _days_left(self):
         from datetime import datetime
         date = str(self._expired_date())
         days_left = datetime.strptime(date, "%d/%m/%Y") - datetime.now()
         return date +', ' + str(days_left.days)
-
-
-class News(Publication):
-    def __init__(self):
-        Publication.__init__(self)
-    def publish(self):
-        from datetime import datetime
-        news = input('\n--------------News publication. Enter news: --------------\n')
-        town = input('\n--------------News publication. Enter town: --------------\n')
-        return 'News -------------------------\n' + news + '\n' + town + ', ' + self._publich_date() + '\n------------------------------\n'
-
-
-class Advertising(Publication):
-    def __init__(self):
-        Publication.__init__(self)
-    def publish(self):
-        from datetime import datetime
-        adv = input('\n--------------Ad publication--------------\nEnter ad: ')
-        return 'Private Ad ------------------\n' + adv + '\n' + 'Actual until: ' + self._days_left() +' days left\n------------------------------\n'
-
 
 class MovieOfTheDay(Publication):
     def __init__(self):
@@ -69,13 +80,17 @@ class MovieOfTheDay(Publication):
         estimate = random.randint(1,10)
         return estimate
 
-    def publish(self):
-        from datetime import datetime
+    def setMovieData(self):
         movie = input('\n--------------Movie of the day publication--------------\nEnter movie of the day: ')
-        return 'Movie of the Day -------------------\n' + movie + '\n' + self._publich_date() + '. Estimation: ' + str(self.__estimate()) + '\n------------------------------\n'
+        self.postContent = movie
+
+    def publish(self):
+        self.postDate = self._publish_date()
+        return 'Movie of the Day -------------------\n' + self.postContent + '\n' + self.postDate + '. Estimation: ' + str(self.__estimate()) + '\n------------------------------\n'
 
 def main():
     import os
+    import sys
     from sys import exit as sys_exit
     writepath = 'TEST.txt'
     mode = 'a' if os.path.exists(writepath) else 'w'
@@ -87,8 +102,8 @@ def main():
                    raise Exception("\n---------------------You must enter a number (1 or 2 or 3). Press 4 to exit.----------------\n")
             except Exception as err:
                print(err)
-               continue # Повторяем ввод, если введено не число из '1', '2', '3'
-            # Выходим из цикла, если числа введены правильно
+               continue # We repeat the entry, if the entered is not a number from '1', '2', '3'
+            # Exit the loop if the numbers are entered correctly
             break
         if choise == '4':
             print('\n-----------------Exit the programm------------------\n')
@@ -96,12 +111,15 @@ def main():
         with open(writepath, mode) as f:
             if choise == '1':
                 news = News()
+                news.setNewsData()
                 f.write(str(news.publish()) + '\n')
             elif choise == '2':
                 adv = Advertising()
+                adv.setAdData()
                 f.write(str(adv.publish()) + '\n')
             elif choise == '3':
                 movie = MovieOfTheDay()
+                movie.setMovieData()
                 f.write(str(movie.publish()) + '\n')
         f.close()
         continue
