@@ -1,28 +1,3 @@
-# class Validation:
-#     isValidDate = False
-#     isPastDate = False
-#     isEmptyString = False
-#
-#     def __init__(self):
-#         pass
-#
-#     def is_date(self, user_date='1/1/2021'):
-#         from datetime import datetime
-#         if datetime.strftime(user_date, '%m/%d/%Y'):
-#             self.isValidDate = True
-#         return self.isValidDate
-#
-#     def is_past_date(self, user_date='1/1/2021'):
-#         from datetime import datetime
-#         if elf.isDate(self, user_date) < datetime.now():
-#             self.isPastDate = True
-#         return self.isPastDate
-#
-#     def is_empty_string(self, post=''):
-#         if post == '':
-#             self.isEmptyString = True
-#         return self.isEmptyString
-
 
 # The Python script to solve Module 5 'Classes. OOP' home task.
 
