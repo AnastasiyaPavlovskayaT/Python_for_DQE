@@ -1,5 +1,9 @@
 # declare and set functions to normalize_string
 
+
+# 'yield' is a keyword that is used roughly like return - the difference is that the function will return a generator.
+# 'generators' are iterables, but you can only read them once.
+
 def isspace(iter_text: iter) -> iter:
     #'' 'print spaces up to the first significant character and the character itself in uppercase' ''
     for s in iter_text:

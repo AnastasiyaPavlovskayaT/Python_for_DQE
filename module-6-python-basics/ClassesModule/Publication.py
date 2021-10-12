@@ -1,4 +1,6 @@
 # declare and set parent class Publication
+
+
 class Publication:
     # class attributes
     postContent = ''
@@ -35,11 +37,13 @@ class News(Publication):
 
     # declare and set method to set content
     def set_news_data(self, news='', town=''):
-        self.postContent = news
-        self.newsTown = town
+        from ClassesModule import NormString
+        self.postContent = NormString.normalize_string(news)
+        self.newsTown = NormString.normalize_string(town)
 
     # declare and set method to set content of news by user using console input
     def set_user_news_data(self):
+
         news = input('\n--------------News publication. Enter news: --------------\n')
         town = input('\n--------------News publication. Enter town: --------------\n')
         self.set_news_data(news, town)
@@ -66,8 +70,9 @@ class Advertising(Publication):
         self.postContent = avd
 
     def set_ad_user_data(self):
+        from ClassesModule import NormString
         adv = input('\n--------------Ad publication--------------\nEnter ad: ')
-        self.postContent = adv
+        self.postContent = NormString.normalize_string(adv)
 
     # declare and set method to return advertising content
     def publish_user_input(self):
@@ -141,8 +146,9 @@ class MovieOfTheDay(Publication):
 
     # declare and set method to set content of movie by user using console input
     def set_movie_user_data(self):
+        from ClassesModule import NormString
         movie = input('\n--------------Movie of the day publication--------------\nEnter movie of the day: ')
-        self.postContent = movie
+        self.postContent = NormString.normalize_string(movie)
 
     # declare and set method to return movie content
     def publish(self):
