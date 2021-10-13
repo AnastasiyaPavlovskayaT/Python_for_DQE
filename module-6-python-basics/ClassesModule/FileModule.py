@@ -6,18 +6,19 @@ class FileTXT:
 
     # class constructor
     # contain validation on the file type
-    def __init__(self,filepath = ''):
+    def __init__(self, filepath=''):
         self.filepath = filepath
         try:
             if not self.filepath.endswith('.txt'):
                 raise NameError("File must be a '.txt' extension")
         except NameError as err:
-                print(err)
+            print(err)
 
     # declare and set method to parse incoming file
     # parsed strings saved in the list
     def read_by_line(self):
-        import os,re
+        import os
+        import re
         from ClassesModule import NormString
         list_of_string = []
         with open(self.filepath, 'r') as reader:
@@ -33,7 +34,7 @@ class FileTXT:
             reader.close()
         return list_of_string
 
-     # declare and set method to write string in to the file
+    # declare and set method to write string in to the file
     def write_list_to_file(self, list_to_write):
         import os
         for string in list_to_write:

@@ -4,10 +4,9 @@ def main():
     import os
     import sys
 
-    # import modules from pyrhon packages
+    # import modules from python packages
     from ClassesModule import Publication
     from ClassesModule import FileModule
-
 
     while True:
         try:
@@ -37,8 +36,8 @@ def main():
             # use loop while to repeat input in case when user made a mistake with the input
             while True:
                 try:
-                    choice_u = input("\n--------------What post do you want to add? Please, choose: \n1 - News\n2 - "
-                                   "Advertising\n3 - Movie of the day\n4 - Exit the program\n")
+                    choice_u = input("\n--------------What post do you want to add? Please, choose: "
+                                     "\n1 - News\n2 - Advertising\n3 - Movie of the day\n4 - Exit the program\n")
                     if choice_u not in ['1', '2', '3', '4']:
                         raise Exception("\n---------------------You must enter a number (1 or 2 or 3). "
                                         "Press 4 to exit.----------------\n")
@@ -99,8 +98,11 @@ def main():
         # remove incoming file
         input_file.file_remove()
 
+
 # main function call
 # __name__ stores the name of the program
 # __main__ indicates the scope where the code will be executed
 if __name__ == "__main__":
     main()
+
+

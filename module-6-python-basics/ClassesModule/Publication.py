@@ -157,6 +157,7 @@ class MovieOfTheDay(Publication):
         return 'Movie of the Day --------------\n' + self.postContent + '\n' + self.postDate + '. Estimation: ' \
                + self.estimate + '\n------------------------------\n'
 
+
 # declare and set class to return string related content type
 class PublicationIdentifier:
     def __init__(self):
