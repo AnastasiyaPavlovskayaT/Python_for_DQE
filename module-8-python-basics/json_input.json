@@ -1,0 +1,31 @@
+{
+	"data": [
+		{
+			"type": "News",
+			"content": {
+				"news": "news from json.",
+				"city": "city"
+			}
+		},
+		{
+			"type": "News",
+			"content": {
+				"news": "news from json!",
+				"city": "city"
+			}
+		},
+		{
+			"type": "Ad",
+			"content": {
+				"ad": "adverTising from json.",
+				"date": "2/2/2022"
+			}
+		},
+		{
+			"type": "Movie",
+			"content": {
+				"movie": "movie From json."
+			}
+		}
+	]
+}
