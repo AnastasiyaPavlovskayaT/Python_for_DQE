@@ -1,4 +1,5 @@
 # declare and set main function
+
 def main():
     import os
     import sys
@@ -6,9 +7,9 @@ def main():
 
     # import modules from pyrhon packages
     from ClassesModule import Publication
-    from ClassesModule import FileModule
+    from ClassesModule import InputFile
     from ClassesModule import FileToCSV
-    from ClassesModule import JSONtoFile
+    # from ClassesModule import JSONtoFile
 
     while True:
         try:
@@ -87,7 +88,7 @@ def main():
             continue
 
     if choice == '2':
-        output_file = FileModule.FileTXT(path)
+        output_file = InputFile.FileTXT(path)
         while True:
             try:
                 type_of_file = input("\n--------------Which type file? Please, choose: \n1 - TXT\n2 - "
@@ -97,7 +98,7 @@ def main():
                                     "Press 0 to exit.----------------\n")
             except Exception as err:
                 print(err)
-                continue  # We repeat the entry, if the entered is not a number from '1', '2', '3', '4'
+                continue  # We repeat the entry, if the entered is not a number from '1', '2', '0'
             # Exit the loop if the numbers are entered correctly
             break
         if type_of_file == '1':
@@ -125,7 +126,8 @@ def main():
                     continue
                 break
             # create txt file object
-            input_file = FileModule.FileTXT(path_to_input_file)
+            input_file = InputFile.FileTXT(path_to_input_file)
+            print(input_file.filepath)
             # parse incoming file and put content in to file with news feed
             output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(input_file.read_by_line()))
             # put the statistic for output file in the csv files
@@ -159,7 +161,7 @@ def main():
                     continue
                 break
             # create json file object
-            json_file = JSONtoFile.FileJSON(path_to_input_file)
+            json_file = InputFile.FileJSON(path_to_input_file)
             # parse incoming file and put content in to file with news feed
             output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(json_file.read_by_line()))
             # put the statistic for output file in the csv files
