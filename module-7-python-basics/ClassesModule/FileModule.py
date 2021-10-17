@@ -10,7 +10,7 @@ class FileTXT:
         self.filepath = filepath
         try:
             if not self.filepath.endswith('.txt'):
-                raise NameError("File must be a '.txt' extension")
+                raise NameError("--------------File must be a '.txt' --------------")
         except NameError as err:
                 print(err)
 

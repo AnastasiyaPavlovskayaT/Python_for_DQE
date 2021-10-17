@@ -1,8 +1,8 @@
-
 # declare and set main function
 def main():
     import os
     import sys
+    import re
 
     # import modules from pyrhon packages
     from ClassesModule import Publication
@@ -27,9 +27,10 @@ def main():
         # method to exit from program
         sys.exit()
 
+    # declare and set variable with path, where output file should be created/saved/add data to file
+    path = 'newsfeed.txt'
+
     if choice == '1':
-        # declare and set variable with path, where output file should be created/saved/add data to file
-        path = 'newsfeed.txt'
         # mode in which file will be opened
         # 'a' - add data to end of the file
         mode = 'a'
@@ -38,8 +39,8 @@ def main():
             while True:
                 try:
                     choice_u = input("\n--------------What post do you want to add? Please, choose: \n1 - News\n2 - "
-                                   "Advertising\n3 - Movie of the day\n4 - Exit the program\n")
-                    if choice_u not in ['1', '2', '3', '4']:
+                                     "Advertising\n3 - Movie of the day\n0 - Exit the program\n")
+                    if choice_u not in ['1', '2', '3', '0']:
                         raise Exception("\n---------------------You must enter a number (1 or 2 or 3). "
                                         "Press 4 to exit.----------------\n")
                 except Exception as err:
@@ -47,7 +48,7 @@ def main():
                     continue  # We repeat the entry, if the entered is not a number from '1', '2', '3', '4'
                 # Exit the loop if the numbers are entered correctly
                 break
-            if choice_u == '4':
+            if choice_u == '0':
                 print('\n-----------------Exit the program------------------\n')
                 # method to exit from program
                 sys.exit()
@@ -80,30 +81,49 @@ def main():
                     f.write(str(movie.publish()) + '\n')
                     # close the file
                     f.close()
-                FileToCSV.txt_to_csv('newsfeed.txt')
+                FileToCSV.txt_to_csv(path)
             # repeat the entry if user wants to add one more publication
             continue
 
     if choice == '2':
-        print('--------File input completed--------')
 
-        # set paths to files
-        path_to_input_file = 'IncomingFile.txt'
-        path_to_output_file = 'newsfeed.txt'
+        while True:
+            try:
+                path_to_input_file = str(input(
+                    '\n---------Please, input name of the existing .txt file with content.'
+                    ' Press 0 to exit.----------------\n'))
+                if path_to_input_file == '0':
+                    print('\n-----------------Exit the program------------------\n')
+                    # method to exit from program
+                    sys.exit()
+                # validation on the file name
+                if len(re.split(r'[~"#%&*:<>?/\\{|},]+', path_to_input_file)) > 1:
+                    raise Exception('Invalid file name. File name should not contain ~"#%&*:<>?/\\{|},')
+                # validation on the type of the file
+                if not path_to_input_file.endswith('.txt'):
+                    raise Exception("--------------File must be a '.txt' --------------")
+                # validation if the file exist
+                if not os.path.exists(path_to_input_file):
+                    raise Exception(
+                        '-------The file with name ' + path_to_input_file + ' do not exist in the directory')
+                # input_file = FileModule.FileTXT(path_to_input_file)
+                # raise Exception('-------The file with name '+ path_to_input_file + ' do not exist in the directory')
+            except Exception as err:
+                print(err)
+                continue
+            break
 
         # create FileTXT objects
         input_file = FileModule.FileTXT(path_to_input_file)
-        output_file = FileModule.FileTXT(path_to_output_file)
+        output_file = FileModule.FileTXT(path)
 
         # parse incoming file and put content in to file with news feed
         output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(input_file.read_by_line()))
+        # put the statistic for output file in the csv files
+        FileToCSV.txt_to_csv(path)
+        print('--------File input completed--------')
         # remove incoming file
-        #input_file.file_remove()
-
-
-
-
-
+        # input_file.file_remove()
 
 
 # main function call
