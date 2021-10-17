@@ -43,7 +43,6 @@ class News(Publication):
 
     # declare and set method to set content of news by user using console input
     def set_user_news_data(self):
-
         news = input('\n--------------News publication. Enter news: --------------\n')
         town = input('\n--------------News publication. Enter town: --------------\n')
         self.set_news_data(news, town)
@@ -65,9 +64,10 @@ class Advertising(Publication):
         Publication.__init__(self)
 
     # declare and set method to set content of advertising by user using console input
-    def set_ad_data(self,avd='',date=''):
+    def set_ad_data(self, avd='', date=''):
+        from ClassesModule import NormString
         self.expiredDate = date
-        self.postContent = avd
+        self.postContent = NormString.normalize_string(avd)
 
     def set_ad_user_data(self):
         from ClassesModule import NormString
@@ -141,8 +141,9 @@ class MovieOfTheDay(Publication):
         self.estimate = str(movie_estimate)
 
     # declare and set method to set content of movie
-    def set_movie_data(self,movie=''):
-        self.postContent = movie
+    def set_movie_data(self, movie=''):
+        from ClassesModule import NormString
+        self.postContent = NormString.normalize_string(movie)
 
     # declare and set method to set content of movie by user using console input
     def set_movie_user_data(self):
