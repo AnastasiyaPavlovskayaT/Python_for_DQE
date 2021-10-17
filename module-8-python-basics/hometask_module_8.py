@@ -101,35 +101,14 @@ def main():
                 continue  # We repeat the entry, if the entered is not a number from '1', '2', '0'
             # Exit the loop if the numbers are entered correctly
             break
+
         if type_of_file == '1':
-            while True:
-                try:
-                    path_to_input_file = str(input(
-                        '\n---------Please, input name of the existing .txt file with content. Press 0 to '
-                        'exit.----------------\n'))
-                    if path_to_input_file == '0':
-                        print('\n-----------------Exit the program------------------\n')
-                        # method to exit from program
-                        sys.exit()
-                    # validation on the file name
-                    if len(re.split(r'[~"#%&*:<>?/\\{|},]+', path_to_input_file)) > 1:
-                        raise Exception('Invalid file name. File name should not contain ~"#%&*:<>?/\\{|},')
-                    # validation on the type of the file
-                    if not path_to_input_file.endswith('.txt'):
-                        raise Exception("--------------File must be a '.txt' --------------")
-                    # validation if the file exist
-                    if not os.path.exists(path_to_input_file):
-                        raise Exception(
-                            '-------The file with name ' + path_to_input_file + ' do not exist in the directory')
-                except Exception as err:
-                    print(err)
-                    continue
-                break
-            # create txt file object
-            input_file = InputFile.FileTXT(path_to_input_file)
-            print(input_file.filepath)
+            txt_input_file = InputFile.FileTXT()
+            txt_input_file.file_validation_input('.txt')
+
             # parse incoming file and put content in to file with news feed
-            output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(input_file.read_by_line()))
+            output_file.write_list_to_file(
+                Publication.PublicationIdentifier.publish_to_file(txt_input_file.read_by_line()))
             # put the statistic for output file in the csv files
             FileToCSV.txt_to_csv(path)
             print('--------File input completed--------')
@@ -137,33 +116,12 @@ def main():
             # input_file.file_remove()
 
         if type_of_file == '2':
-            while True:
-                try:
-                    path_to_input_file = str(input(
-                        '\n---------Please, input name of the existing .json file with content. Press 0 to '
-                        'exit.----------------\n'))
-                    if path_to_input_file == '0':
-                        print('\n-----------------Exit the program------------------\n')
-                        # method to exit from program
-                        sys.exit()
-                    # validation on the file name
-                    if len(re.split(r'[~"#%&*:<>?/\\{|},]+', path_to_input_file)) > 1:
-                        raise Exception('Invalid file name. File name should not contain ~"#%&*:<>?/\\{|},')
-                    # validation on the type of the file
-                    if not path_to_input_file.endswith('.json'):
-                        raise Exception("--------------File must be a '.json' --------------")
-                    # validation if the file exist
-                    if not os.path.exists(path_to_input_file):
-                        raise Exception(
-                            '-------The file with name ' + path_to_input_file + ' do not exist in the directory')
-                except Exception as err:
-                    print(err)
-                    continue
-                break
-            # create json file object
-            json_file = InputFile.FileJSON(path_to_input_file)
+            json_input_file = InputFile.FileJSON()
+            json_input_file.file_validation_input('.json')
+
             # parse incoming file and put content in to file with news feed
-            output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(json_file.read_by_line()))
+            output_file.write_list_to_file(
+                Publication.PublicationIdentifier.publish_to_file(json_input_file.read_by_line()))
             # put the statistic for output file in the csv files
             FileToCSV.txt_to_csv(path)
             print('--------File input completed--------')

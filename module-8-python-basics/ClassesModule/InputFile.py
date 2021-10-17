@@ -20,6 +20,35 @@ class InputFile:
                 file.write(string)
             file.close()
 
+    #declare and set method to validate file input
+    def file_validation_input(self, file_type):
+        import re
+        import os
+        while True:
+            try:
+                path_to_input_file = str(input(
+                    '\n---------Please, input name of the existing'+ file_type +' file with content. Press 0 to '
+                    'exit.----------------\n'))
+                if path_to_input_file == '0':
+                    print('\n-----------------Exit the program------------------\n')
+                    # method to exit from program
+                    sys.exit()
+                # validation on the file name
+                if len(re.split(r'[~"#%&*:<>?/\\{|},]+', path_to_input_file)) > 1:
+                    raise Exception('Invalid file name. File name should not contain ~"#%&*:<>?/\\{|},')
+                # validation on the type of the file
+                if not path_to_input_file.endswith(file_type):
+                    raise Exception("--------------File must be a " + file_type + " --------------")
+                # validation if the file exist
+                if not os.path.exists(path_to_input_file):
+                    raise Exception(
+                        '-------The file with name ' + path_to_input_file + ' do not exist in the directory')
+            except Exception as err:
+                print(err)
+                continue
+            break
+        self.filepath = path_to_input_file
+        return path_to_input_file
 
 # declare and set child class FileTXT
 class FileTXT(InputFile):
