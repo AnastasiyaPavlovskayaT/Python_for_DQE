@@ -24,6 +24,7 @@ def letter_func(file_name):
     import re
     import string
     import collections
+    from decimal import Decimal
     file = open(file_name, "r+")
     list_of_letters = []
     for text in file:
@@ -53,7 +54,7 @@ def letter_func(file_name):
         result_dict[key_all.lower()][0] += value_all[0]
         if key_all.isupper():
             result_dict[key_all.lower()][1] += value_all[0]
-        result_dict[key_all.lower()][2] = round(result_dict[key_all.lower()][0] * 100 / sum(count_letter), 2)
+        result_dict[key_all.lower()][2] = Decimal(str(round(result_dict[key_all.lower()][0] * 100 / sum(count_letter), 2)))
     return result_dict
 
 
