@@ -1,0 +1,29 @@
+<feed_content>
+	<data>
+		<type>News</type>
+		<content>
+			<news>News from xMl file!</news>
+			<city>Minsk</city>
+		</content>
+	</data>
+	<data>
+		<type>News</type>
+		<content>
+			<news>nEWs from xML file again? Yes!</news>
+			<city>Grodno</city>
+		</content>
+	</data>
+	<data>
+		<type>Ad</type>
+		<content>
+			<ad>adVERTIsing from xml file. Sell bike again.</ad>
+			<date>9/2/2022</date>
+		</content>
+	</data>
+	<data>
+		<type>Movie</type>
+		<content>
+			<movie>SIMPSONS</movie>
+		</content>
+	</data>
+</feed_content>
