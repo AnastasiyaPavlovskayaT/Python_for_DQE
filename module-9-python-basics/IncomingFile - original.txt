@@ -1,0 +1,8 @@
+News\nnews 1. something happend. it's interesting.\nLondon\n
+Ad\nadvertising 1. sell bike. 500 EUR.\n12/11/2021\n
+News\nNews 2. Something happend again!\nGrodno\n
+Movie\nThe Avengers\n
+Movie\nSherlok\n
+Ad\nAdvertising 3. Looking for python courses.\n6/6/2022\n
+Ad\nADVERTISING 4. looking for python courses.\n6/6/2022\n
+News\nnEWS 3. something happend again!\ngrodno\n
