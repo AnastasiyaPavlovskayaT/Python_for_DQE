@@ -1,0 +1,31 @@
+{
+	"data": [
+		{
+			"type": "News",
+			"content": {
+				"news": "News from json file!",
+				"city": "Minsk"
+			}
+		},
+		{
+			"type": "News",
+			"content": {
+				"news": "nEWs from json file again? Yes!",
+				"city": "Grodno"
+			}
+		},
+		{
+			"type": "Ad",
+			"content": {
+				"ad": "adVERTIsing from json file. Sell bike again.",
+				"date": "9/2/2022"
+			}
+		},
+		{
+			"type": "Movie",
+			"content": {
+				"movie": "lord OF THE rings"
+			}
+		}
+	]
+}
