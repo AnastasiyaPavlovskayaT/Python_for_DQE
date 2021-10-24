@@ -125,25 +125,10 @@ def main():
 
             # parse incoming file and put content in to file with news feed
             output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(txt_input_file.read_by_line()))
+            # call metod to put record content in the db tables
             for string in txt_input_file.read_by_line():
-                if string[0] == 'News':
-                    news = Publication.News()
-                    news.set_news_data(string[1], string[2])
-                    news.publish()
-                    # insert input record in db table
-                    db.insert_news(news.postContent, news.newsTown, str(news.postDate))
-                if string[0] == 'Ad':
-                    adv = Publication.Advertising()
-                    adv.set_ad_data(string[1], string[2])
-                    adv.publish()
-                    # insert input record in db table
-                    db.insert_ad(adv.postContent, str(adv.expiredDate), adv._days_left()[1])
-                if string[0] == 'Movie':
-                    movie = Publication.MovieOfTheDay()
-                    movie.set_movie_data(string[1])
-                    movie.publish()
-                    # insert input record in db table
-                    db.insert_movie(movie.postContent, str(movie.postDate), movie.estimate)
+                db.put_content_in_db(string)
+
             # remove incoming file
             # txt_input_file.file_remove()
 
@@ -154,25 +139,10 @@ def main():
 
             # parse incoming file and put content in to file with news feed
             output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(json_input_file.read_by_line()))
+            # call metod to put record content in the db tables
             for string in json_input_file.read_by_line():
-                if string[0] == 'News':
-                    news = Publication.News()
-                    news.set_news_data(string[1], string[2])
-                    news.publish()
-                    # insert input record in db table
-                    db.insert_news(news.postContent, news.newsTown, str(news.postDate))
-                if string[0] == 'Ad':
-                    adv = Publication.Advertising()
-                    adv.set_ad_data(string[1], string[2])
-                    adv.publish()
-                    # insert input record in db table
-                    db.insert_ad(adv.postContent, str(adv.expiredDate), adv._days_left()[1])
-                if string[0] == 'Movie':
-                    movie = Publication.MovieOfTheDay()
-                    movie.set_movie_data(string[1])
-                    movie.publish()
-                    # insert input record in db table
-                    db.insert_movie(movie.postContent, str(movie.postDate), movie.estimate)
+                db.put_content_in_db(string)
+
             # remove incoming file
             # json_input_file.file_remove()
 
@@ -182,29 +152,12 @@ def main():
             xml_input_file.file_validation_input('.xml')
             # parse incoming file and put content in to file with news feed
             output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(xml_input_file.read_by_line()))
+            # call metod to put record content in the db tables
             for string in xml_input_file.read_by_line():
-                if string[0] == 'News':
-                    news = Publication.News()
-                    news.set_news_data(string[1], string[2])
-                    news.publish()
-                    # insert input record in db table
-                    db.insert_news(news.postContent, news.newsTown, str(news.postDate))
-                if string[0] == 'Ad':
-                    adv = Publication.Advertising()
-                    adv.set_ad_data(string[1], string[2])
-                    adv.publish()
-                    # insert input record in db table
-                    db.insert_ad(adv.postContent, str(adv.expiredDate), adv._days_left()[1])
-                if string[0] == 'Movie':
-                    movie = Publication.MovieOfTheDay()
-                    movie.set_movie_data(string[1])
-                    movie.publish()
-                    # insert input record in db table
-                    db.insert_movie(movie.postContent, str(movie.postDate), movie.estimate)
+                db.put_content_in_db(string)
 
              # remove incoming file
              # xml_input_file.file_remove()
-
 
     # put the statistic for output file in the csv files
     FileToCSV.txt_to_csv(path)

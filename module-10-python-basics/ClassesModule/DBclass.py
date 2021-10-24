@@ -53,15 +53,20 @@ class DBclass:
         except:
             self.connection.rollback()
 
+    # set and declare method to set last record id
+    def set_id(self, table_name):
+        try:
+            self.cursor.execute(f'SELECT MAX(ID) FROM {table_name}')
+            id = int(self.cursor.fetchall()[0][0]) + 1
+        except:
+            id = 1
+        return id
+
     # method to insert content in the NEWS table
     # ''.format() is using to shielding ' (for example in input file exist 'it's')
     def insert_news(self, content, city, publish_date):
         self.__connection()
-        try:
-            self.cursor.execute('SELECT MAX(ID) FROM NEWS')
-            id = int(self.cursor.fetchall()[0][0]) + 1
-        except:
-            id = 1
+        id = self.set_id('NEWS')
         self.cursor.execute("SELECT COUNT(*) FROM NEWS WHERE content = ? AND city = ? ".format(), (content,city))
         if self.cursor.fetchall()[0][0] == 0:
             try:
@@ -80,11 +85,7 @@ class DBclass:
     # ''.format() is using to shielding ' (for example in input file exist 'it's')
     def insert_ad(self, content, expired_date, days_left):
         self.__connection()
-        try:
-            self.cursor.execute('SELECT MAX(ID) FROM AD')
-            id = int(self.cursor.fetchall()[0][0]) + 1
-        except:
-            id = 1
+        id = self.set_id('AD')
         self.cursor.execute("SELECT COUNT(*) FROM AD WHERE ad = ? AND expired_date = ?".format(), (content, expired_date))
         if self.cursor.fetchall()[0][0] == 0:
             try:
@@ -103,11 +104,7 @@ class DBclass:
     # ''.format() is using to shielding ' (for example in input file exist 'it's')
     def insert_movie(self, content, publish_date, estimation):
         self.__connection()
-        try:
-            self.cursor.execute('SELECT MAX(ID) FROM MOVIE')
-            id = int(self.cursor.fetchall()[0][0]) + 1
-        except:
-            id = 1
+        id = self.set_id('MOVIE')
         self.cursor.execute("SELECT COUNT(*) FROM MOVIE WHERE movie = ?".format(), (content,))
         if self.cursor.fetchall()[0][0] == 0:
             try:
@@ -131,6 +128,28 @@ class DBclass:
             print(row)
         # print(result)
         self.cursor.close()
+
+    # set an declare metod to put record content in the db tables
+    def put_content_in_db(self, string):
+        from ClassesModule import Publication
+        if string[0] == 'News':
+            news = Publication.News()
+            news.set_news_data(string[1], string[2])
+            news.publish()
+            # insert input record in db table
+            self.insert_news(news.postContent, news.newsTown, str(news.postDate))
+        if string[0] == 'Ad':
+            adv = Publication.Advertising()
+            adv.set_ad_data(string[1], string[2])
+            adv.publish()
+            # insert input record in db table
+            self.insert_ad(adv.postContent, str(adv.expiredDate), adv._days_left()[1])
+        if string[0] == 'Movie':
+            movie = Publication.MovieOfTheDay()
+            movie.set_movie_data(string[1])
+            movie.publish()
+            # insert input record in db table
+            self.insert_movie(movie.postContent, str(movie.postDate), movie.estimate)
 
     # method to print db tables in the consol
     def print_db_tables(self):
