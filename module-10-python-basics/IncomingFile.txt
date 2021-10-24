@@ -1,0 +1,8 @@
+News\n TXT news 1. something happend. it's interesting.\nLondon\n
+Ad\nTXT advertising 1. sell bike. 500 EUR.\n12/11/2021\n
+News\nTXT News 2. Something happend again!\nGrodno\n
+Movie\nTXT The Avengers\n
+Movie\nTXT Sherlok\n
+Ad\nTXT Advertising 3. Looking for python courses.\n6/6/2022\n
+Ad\nTXT ADVERTISING 4. looking for python courses.\n6/6/2022\n
+News\nTXT nEWS 3. something happend again!\ngrodno\n
