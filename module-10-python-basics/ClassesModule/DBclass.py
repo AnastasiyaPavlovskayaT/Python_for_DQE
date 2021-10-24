@@ -71,6 +71,7 @@ class DBclass:
                 self.connection.rollback()
                 self.cursor.close()
         else:
+            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
             print('-----Duplicate row. Was not recorded into database:----- \n', 'News: ' + content, ' \n', 'City: ' + city + '\n')
             self.connection.rollback()
             self.cursor.close()
@@ -93,6 +94,7 @@ class DBclass:
                 self.connection.rollback()
                 self.cursor.close()
         else:
+            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
             print('-----Duplicate row. Was not recorded into database:-----\n', 'Ad: ' + content, ' \n', 'Expired date: ' + expired_date + '\n')
             self.connection.rollback()
             self.cursor.close()
@@ -106,7 +108,6 @@ class DBclass:
             id = int(self.cursor.fetchall()[0][0]) + 1
         except:
             id = 1
-        # print(str(id) + ' ' + content + ' ' + publish_date + ' ' + estimation)
         self.cursor.execute("SELECT COUNT(*) FROM MOVIE WHERE movie = ?".format(), (content,))
         if self.cursor.fetchall()[0][0] == 0:
             try:
@@ -116,6 +117,7 @@ class DBclass:
                 self.connection.rollback()
                 self.cursor.close()
         else:
+            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
             print('-----Duplicate row. Was not recorded into database:----- \n', 'Movie: ' + content, ' \n', 'Publish date: ' + publish_date + '\n')
             self.connection.rollback()
             self.cursor.close()
@@ -125,14 +127,19 @@ class DBclass:
         self.__connection()
         self.cursor.execute('SELECT * FROM {0}'.format(table_name))
         result = self.cursor.fetchall()
-        print(result)
+        for row in result:
+            print(row)
+        # print(result)
         self.cursor.close()
 
     # method to print db tables in the consol
     def print_db_tables(self):
-        print('--------NEWS TABLE---------------\n')
+        print('-------------------------------------------NEWS TABLE----------------------------------------------------\n')
         self.select('NEWS')
-        print('--------AD TABLE---------------\n')
+        print('---------------------------------------------------------------------------------------------------------\n')
+        print('--------------------------------------------AD TABLE-----------------------------------------------------\n')
         self.select('AD')
-        print('--------MOVIE TABLE---------------\n')
+        print('---------------------------------------------------------------------------------------------------------\n')
+        print('----------------------------------------- -MOVIE TABLE---------------------------------------------------\n')
         self.select('MOVIE')
+        print('---------------------------------------------------------------------------------------------------------\n')

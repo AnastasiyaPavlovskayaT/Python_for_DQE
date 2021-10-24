@@ -1393,3 +1393,323 @@ Qwd
 Wd, 24/10/2021 23.36
 -----------------------------
 
+News ------------------------
+ Txt news 1. Something happend. It's interesting.
+London, 24/10/2021 23.51
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 18 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 24/10/2021 23.51
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+24/10/2021 23.51. Estimation: 9
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+24/10/2021 23.51. Estimation: 9
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 24/10/2021 23.51
+-----------------------------
+
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 24/10/2021 23.52
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 18 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 24/10/2021 23.52
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+24/10/2021 23.52. Estimation: 6
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+24/10/2021 23.52. Estimation: 5
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 24/10/2021 23.52
+-----------------------------
+
+News ------------------------
+News from json file!
+Minsk, 24/10/2021 23.53
+-----------------------------
+
+News ------------------------
+News from json file again? Yes!
+Grodno, 24/10/2021 23.53
+-----------------------------
+
+Private Ad ------------------
+Advertising from json file. Sell bike again.
+Actual until: 9/2/2022, 107 days left
+-----------------------------
+
+Movie of the Day --------------
+Lord of the rings
+24/10/2021 23.53. Estimation: 5
+------------------------------
+
+News ------------------------
+News from xml file!
+Minsk, 24/10/2021 23.53
+-----------------------------
+
+News ------------------------
+News from xml file again? Yes!
+Grodno, 24/10/2021 23.53
+-----------------------------
+
+Private Ad ------------------
+Advertising from xml file. Sell bike again.
+Actual until: 9/2/2022, 107 days left
+-----------------------------
+
+Movie of the Day --------------
+Simpsons
+24/10/2021 23.53. Estimation: 6
+------------------------------
+
+News ------------------------
+It's user news.
+It's user city., 24/10/2021 23.54
+-----------------------------
+
+Private Ad ------------------
+It's user ad.
+Actual until: 3/3/2025, 1225 days left
+-----------------------------
+
+Movie of the Day --------------
+It's user movie.
+24/10/2021 23.54. Estimation: 7
+------------------------------
+
+News ------------------------
+It's user news.
+It's user city., 24/10/2021 23.55
+-----------------------------
+
+Private Ad ------------------
+It's user ad.
+Actual until: 2/2/2025, 1196 days left
+-----------------------------
+
+Movie of the Day --------------
+It's user movie.
+24/10/2021 23.56. Estimation: 8
+------------------------------
+
+Private Ad ------------------
+It's user ad.
+Actual until: 2/2/2025, 1196 days left
+-----------------------------
+
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 24/10/2021 23.57
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 18 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 24/10/2021 23.57
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+24/10/2021 23.57. Estimation: 5
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+24/10/2021 23.57. Estimation: 7
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 24/10/2021 23.57
+-----------------------------
+
+News ------------------------
+News from json file!
+Minsk, 24/10/2021 23.58
+-----------------------------
+
+News ------------------------
+News from json file again? Yes!
+Grodno, 24/10/2021 23.58
+-----------------------------
+
+Private Ad ------------------
+Advertising from json file. Sell bike again.
+Actual until: 9/2/2022, 107 days left
+-----------------------------
+
+Movie of the Day --------------
+Lord of the rings
+24/10/2021 23.58. Estimation: 5
+------------------------------
+
+News ------------------------
+News from xml file!
+Minsk, 24/10/2021 23.58
+-----------------------------
+
+News ------------------------
+News from xml file again? Yes!
+Grodno, 24/10/2021 23.58
+-----------------------------
+
+Private Ad ------------------
+Advertising from xml file. Sell bike again.
+Actual until: 9/2/2022, 107 days left
+-----------------------------
+
+Movie of the Day --------------
+Simpsons
+24/10/2021 23.58. Estimation: 4
+------------------------------
+
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 24/10/2021 23.59
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 18 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 24/10/2021 23.59
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+24/10/2021 23.59. Estimation: 9
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+24/10/2021 23.59. Estimation: 8
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 224 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 24/10/2021 23.59
+-----------------------------
+
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 25/10/2021 00.00
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 17 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 25/10/2021 00.00
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+25/10/2021 00.00. Estimation: 1
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+25/10/2021 00.00. Estimation: 8
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 25/10/2021 00.00
+-----------------------------
+
+News ------------------------
+Txt news 4. Something happend again! It's great!!!
+Grodno, 25/10/2021 00.00
+-----------------------------
+
