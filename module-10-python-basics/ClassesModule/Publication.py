@@ -140,7 +140,6 @@ class MovieOfTheDay(Publication):
         movie_estimate = random.randint(1, 10)
         self.estimate = str(movie_estimate)
 
-
     # declare and set method to set content of movie
     def set_movie_data(self, movie=''):
         from ClassesModule import NormString

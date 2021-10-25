@@ -1,0 +1,2 @@
+1) install pyodbc
+2) install SQLite3 ODBC Driver

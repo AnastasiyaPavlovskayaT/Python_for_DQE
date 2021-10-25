@@ -1,54 +1,58 @@
-
 # set and declare class to work with database
 class DBclass:
     # class attributes
     dbName = ''
 
     # class constructor
-    def __init__(self, dbName = ''):
-        self.dbName = dbName
+    def __init__(self, db_name=''):
+        self.dbName = db_name
         # pass
         # import sqlite3
         # with sqlite3.connect(self.dbName) as self.connection:
         #     self.cursor = self.connection.cursor()
 
     # private method to create connection with database
-    def __connection(self, dbName = ''):
+    def __connection(self, db_name=''):
         import sqlite3
-        with sqlite3.connect(self.dbName) as self.connection:
+        import pyodbc
+        con = pyodbc.connect('DRIVER={SQLite3 ODBC Driver};'
+                             'Direct=True;'
+                             'Database=newsfeed.db;'
+                             'String Types=Unicode')
+        # sqlite3.connect(self.dbName)
+        with con as self.connection:
             self.cursor = self.connection.cursor()
 
-
     # method to create tables
-    def DB_tables_create(self):
+    def db_tables_create(self):
         self.__connection(self.dbName)
         try:
             # create NEWS table
             self.cursor.execute('CREATE TABLE NEWS ('
-                           'id INT PRIMARY KEY, '
-                           'content TEXT,'
-                           'city TEXT,'
-                           'publish_date TEXT)')
+                                'id INT PRIMARY KEY, '
+                                'content TEXT,'
+                                'city TEXT,'
+                                'publish_date TEXT)')
             self.connection.commit()
         except:
-             self.connection.rollback()
+            self.connection.rollback()
         try:
             # create Ad table
             self.cursor.execute('CREATE TABLE AD ('
-                           'id INT PRIMARY KEY, '
-                           'ad TEXT,'
-                           'expired_date TEXT,'
-                           'days_left INT)')
+                                'id INT PRIMARY KEY, '
+                                'ad TEXT,'
+                                'expired_date TEXT,'
+                                'days_left INT)')
             self.connection.commit()
         except:
             self.connection.rollback()
         try:
             # create Movie table
             self.cursor.execute('CREATE TABLE MOVIE ('
-                           'id INT PRIMARY KEY, '
-                           'movie TEXT,'
-                           'publish_date TEXT,'
-                           'estimation INT)')
+                                'id INT PRIMARY KEY, '
+                                'movie TEXT,'
+                                'publish_date TEXT,'
+                                'estimation INT)')
             self.connection.commit()
         except:
             self.connection.rollback()
@@ -67,7 +71,7 @@ class DBclass:
     def insert_news(self, content, city, publish_date):
         self.__connection()
         id = self.set_id('NEWS')
-        self.cursor.execute("SELECT COUNT(*) FROM NEWS WHERE content = ? AND city = ? ".format(), (content,city))
+        self.cursor.execute("SELECT COUNT(*) FROM NEWS WHERE content = ? AND city = ? ".format(), (content, city))
         if self.cursor.fetchall()[0][0] == 0:
             try:
                 self.cursor.execute("INSERT INTO NEWS VALUES (?,?,?,?)".format(), (id, content, city, publish_date))
@@ -76,8 +80,11 @@ class DBclass:
                 self.connection.rollback()
                 self.cursor.close()
         else:
-            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
-            print('-----Duplicate row. Was not recorded into database:----- \n', 'News: ' + content, ' \n', 'City: ' + city + '\n')
+            print(
+                '\n---------------------------------------DUPLICATE ROW'
+                '--------------------------------------------------\n')
+            print('-----Duplicate row. Was not recorded into database:----- \n', 'News: ' + content, ' \n',
+                  'City: ' + city + '\n')
             self.connection.rollback()
             self.cursor.close()
 
@@ -86,7 +93,8 @@ class DBclass:
     def insert_ad(self, content, expired_date, days_left):
         self.__connection()
         id = self.set_id('AD')
-        self.cursor.execute("SELECT COUNT(*) FROM AD WHERE ad = ? AND expired_date = ?".format(), (content, expired_date))
+        self.cursor.execute("SELECT COUNT(*) FROM AD WHERE ad = ? AND expired_date = ?".format(),
+                            (content, expired_date))
         if self.cursor.fetchall()[0][0] == 0:
             try:
                 self.cursor.execute("INSERT INTO AD VALUES (?,?,?,?)".format(), (id, content, expired_date, days_left))
@@ -95,8 +103,11 @@ class DBclass:
                 self.connection.rollback()
                 self.cursor.close()
         else:
-            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
-            print('-----Duplicate row. Was not recorded into database:-----\n', 'Ad: ' + content, ' \n', 'Expired date: ' + expired_date + '\n')
+            print(
+                '\n---------------------------------------DUPLICATE ROW'
+                '--------------------------------------------------\n')
+            print('-----Duplicate row. Was not recorded into database:-----\n', 'Ad: ' + content, ' \n',
+                  'Expired date: ' + expired_date + '\n')
             self.connection.rollback()
             self.cursor.close()
 
@@ -108,14 +119,18 @@ class DBclass:
         self.cursor.execute("SELECT COUNT(*) FROM MOVIE WHERE movie = ?".format(), (content,))
         if self.cursor.fetchall()[0][0] == 0:
             try:
-                self.cursor.execute("INSERT INTO MOVIE VALUES (?,?,?,?)".format(), (id, content, publish_date, estimation))
+                self.cursor.execute("INSERT INTO MOVIE VALUES (?,?,?,?)".format(),
+                                    (id, content, publish_date, estimation))
                 self.connection.commit()
             except:
                 self.connection.rollback()
                 self.cursor.close()
         else:
-            print('\n---------------------------------------DUPLICATE ROW--------------------------------------------------\n')
-            print('-----Duplicate row. Was not recorded into database:----- \n', 'Movie: ' + content, ' \n', 'Publish date: ' + publish_date + '\n')
+            print(
+                '\n---------------------------------------DUPLICATE ROW'
+                '--------------------------------------------------\n')
+            print('-----Duplicate row. Was not recorded into database:----- \n', 'Movie: ' + content, ' \n',
+                  'Publish date: ' + publish_date + '\n')
             self.connection.rollback()
             self.cursor.close()
 
@@ -153,12 +168,24 @@ class DBclass:
 
     # method to print db tables in the consol
     def print_db_tables(self):
-        print('-------------------------------------------NEWS TABLE----------------------------------------------------\n')
+        print(
+            '-------------------------------------------NEWS TABLE'
+            '----------------------------------------------------\n')
         self.select('NEWS')
-        print('---------------------------------------------------------------------------------------------------------\n')
-        print('--------------------------------------------AD TABLE-----------------------------------------------------\n')
+        print(
+            '----------------------------------------------------'
+            '-----------------------------------------------------\n')
+        print(
+            '--------------------------------------------AD TABLE'
+            '-----------------------------------------------------\n')
         self.select('AD')
-        print('---------------------------------------------------------------------------------------------------------\n')
-        print('----------------------------------------- -MOVIE TABLE---------------------------------------------------\n')
+        print(
+            '------------------------------------------------------'
+            '---------------------------------------------------\n')
+        print(
+            '------------------------------------------MOVIE TABLE'
+            '---------------------------------------------------\n')
         self.select('MOVIE')
-        print('---------------------------------------------------------------------------------------------------------\n')
+        print(
+            '-------------------------------------------------------'
+            '--------------------------------------------------\n')

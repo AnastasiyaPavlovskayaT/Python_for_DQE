@@ -1,11 +1,12 @@
 # declare and set main function
 
+
 def main():
     import os
     import sys
     import re
 
-    # import modules from pyrhon packages
+    # import modules from python packages
     from ClassesModule import Publication
     from ClassesModule import InputFile
     from ClassesModule import FileToCSV
@@ -14,7 +15,7 @@ def main():
     # create db class object
     db = DBclass.DBclass('newsfeed.db')
     # call db method to create db tables
-    db.DB_tables_create()
+    db.db_tables_create()
 
     while True:
         try:
@@ -124,8 +125,9 @@ def main():
             txt_input_file.file_validation_input('.txt')
 
             # parse incoming file and put content in to file with news feed
-            output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(txt_input_file.read_by_line()))
-            # call metod to put record content in the db tables
+            output_file.write_list_to_file(
+                Publication.PublicationIdentifier.publish_to_file(txt_input_file.read_by_line()))
+            # call method to put record content in the db tables
             for string in txt_input_file.read_by_line():
                 db.put_content_in_db(string)
 
@@ -138,8 +140,9 @@ def main():
             json_input_file.file_validation_input('.json')
 
             # parse incoming file and put content in to file with news feed
-            output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(json_input_file.read_by_line()))
-            # call metod to put record content in the db tables
+            output_file.write_list_to_file(
+                Publication.PublicationIdentifier.publish_to_file(json_input_file.read_by_line()))
+            # call method to put record content in the db tables
             for string in json_input_file.read_by_line():
                 db.put_content_in_db(string)
 
@@ -151,13 +154,14 @@ def main():
             xml_input_file = InputFile.FileXML()
             xml_input_file.file_validation_input('.xml')
             # parse incoming file and put content in to file with news feed
-            output_file.write_list_to_file(Publication.PublicationIdentifier.publish_to_file(xml_input_file.read_by_line()))
-            # call metod to put record content in the db tables
+            output_file.write_list_to_file(
+                Publication.PublicationIdentifier.publish_to_file(xml_input_file.read_by_line()))
+            # call method to put record content in the db tables
             for string in xml_input_file.read_by_line():
                 db.put_content_in_db(string)
 
-             # remove incoming file
-             # xml_input_file.file_remove()
+            # remove incoming file
+            # xml_input_file.file_remove()
 
     # put the statistic for output file in the csv files
     FileToCSV.txt_to_csv(path)
@@ -165,7 +169,6 @@ def main():
 
     # print db tables result
     db.print_db_tables()
-
 
 
 # main function call
