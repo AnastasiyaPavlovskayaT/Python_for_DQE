@@ -1,0 +1,30 @@
+News ------------------------
+News 1. Something happend. It's interesting.
+London, 04/10/2021 21.12
+-----------------------------
+
+Private Ad ------------------
+Advertising 1. Sell bike. 500 EUR.
+Actual until: 12/11/2021, 38 days left
+-----------------------------
+
+News ------------------------
+News 2. Something happend again!
+Grodno, 04/10/2021 21.13
+-----------------------------
+
+Movie of the Day --------------
+The Avengers
+04/10/2021 21.13. Estimation: 4
+------------------------------
+
+Movie of the Day --------------
+Sherlok
+04/10/2021 21.13. Estimation: 6
+------------------------------
+
+Private Ad ------------------
+Advertising 2. Looking for Python courses.
+Actual until: 6/6/2022, 244 days left
+-----------------------------
+
