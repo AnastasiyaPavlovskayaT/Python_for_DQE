@@ -1,0 +1,155 @@
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 25/10/2021 22.08
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 17 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 25/10/2021 22.08
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+25/10/2021 22.08. Estimation: 5
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+25/10/2021 22.08. Estimation: 9
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 25/10/2021 22.08
+-----------------------------
+
+News ------------------------
+Txt news 4. Something happend again! It's great!!!
+Grodno, 25/10/2021 22.08
+-----------------------------
+
+News ------------------------
+News from json file!
+Minsk, 25/10/2021 22.08
+-----------------------------
+
+News ------------------------
+News from json file again? Yes!
+Grodno, 25/10/2021 22.08
+-----------------------------
+
+Private Ad ------------------
+Advertising from json file. Sell bike again.
+Actual until: 9/2/2022, 106 days left
+-----------------------------
+
+Movie of the Day --------------
+Lord of the rings
+25/10/2021 22.08. Estimation: 5
+------------------------------
+
+News ------------------------
+News from xml file!
+Minsk, 25/10/2021 22.09
+-----------------------------
+
+News ------------------------
+News from xml file again? Yes!
+Grodno, 25/10/2021 22.09
+-----------------------------
+
+Private Ad ------------------
+Advertising from xml file. Sell bike again.
+Actual until: 9/2/2022, 106 days left
+-----------------------------
+
+Movie of the Day --------------
+Simpsons
+25/10/2021 22.09. Estimation: 1
+------------------------------
+
+News ------------------------
+Ert
+Etr, 25/10/2021 23.33
+-----------------------------
+
+News ------------------------
+Txt news 1. Something happend. It's interesting.
+London, 25/10/2021 23.33
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 1. Sell bike. 500 eur.
+Actual until: 12/11/2021, 17 days left
+-----------------------------
+
+News ------------------------
+Txt news 2. Something happend again!
+Grodno, 25/10/2021 23.33
+-----------------------------
+
+Movie of the Day --------------
+Txt the avengers
+25/10/2021 23.33. Estimation: 6
+------------------------------
+
+Movie of the Day --------------
+Txt sherlok
+25/10/2021 23.33. Estimation: 3
+------------------------------
+
+Private Ad ------------------
+Txt advertising 3. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+Private Ad ------------------
+Txt advertising 4. Looking for python courses.
+Actual until: 6/6/2022, 223 days left
+-----------------------------
+
+News ------------------------
+Txt news 3. Something happend again!
+Grodno, 25/10/2021 23.33
+-----------------------------
+
+News ------------------------
+Txt news 4. Something happend again! It's great!!!
+Grodno, 25/10/2021 23.33
+-----------------------------
+
+News ------------------------
+News from json file!
+Minsk, 25/10/2021 23.35
+-----------------------------
+
+News ------------------------
+News from json file again? Yes!
+Grodno, 25/10/2021 23.35
+-----------------------------
+
+Private Ad ------------------
+Advertising from json file. Sell bike again.
+Actual until: 9/2/2022, 106 days left
+-----------------------------
+
+Movie of the Day --------------
+Lord of the rings
+25/10/2021 23.35. Estimation: 7
+------------------------------
+
